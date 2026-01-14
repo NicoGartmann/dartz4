@@ -1,0 +1,16 @@
+node_modules
+.next
+out
+dist
+coverage
+npm-debug.log
+yarn-error.log
+
+.git
+.gitignore
+.github
+
+Dockerfile
+docker-compose.yml
+
+README.md
