@@ -1,26 +1,251 @@
-@import "tailwindcss";
+/* app/globals.css */
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: light;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  color: #111;
+  background: #f7f7fb;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 28px 16px 60px;
+}
+
+.header h1 {
+  margin: 0 0 6px 0;
+  font-size: 28px;
+}
+.muted {
+  margin: 0;
+  color: rgba(0,0,0,0.6);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  margin-top: 16px;
+}
+
+@media (min-width: 960px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.card {
+  background: white;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 16px;
+  padding: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+}
+
+.card h2 {
+  margin: 0 0 10px 0;
+  font-size: 18px;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.rowBetween {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.rowWrap {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.input, .select {
+  height: 38px;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.14);
+  padding: 0 12px;
+  font-size: 14px;
+  outline: none;
+}
+
+.input { flex: 1; min-width: 180px; }
+.select { min-width: 150px; }
+
+.label {
+  min-width: 130px;
+  color: rgba(0,0,0,0.65);
+  font-size: 14px;
+}
+
+.btn {
+  height: 38px;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.14);
+  background: #111;
+  color: white;
+  padding: 0 12px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btnGhost {
+  background: white;
+  color: #111;
+}
+
+.btnDanger {
+  background: #b00020;
+  border-color: rgba(0,0,0,0.14);
+}
+
+.list {
+  margin-top: 12px;
+  display: grid;
+  gap: 8px;
+}
+
+.listItem {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 12px;
+  padding: 10px 10px;
+}
+
+.error {
+  margin-top: 12px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(176,0,32,0.08);
+  border: 1px solid rgba(176,0,32,0.25);
+  color: #7a0016;
+}
+
+.bracketScroll {
+  margin-top: 10px;
+  overflow: auto;
+  border-radius: 14px;
+  border: 1px dashed rgba(0,0,0,0.12);
+  padding: 10px;
+  background: #fafafe;
+}
+
+.bracketSvg {
+  color: #111;
+}
+
+.pillRow {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.pill {
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,0.12);
+  background: rgba(0,0,0,0.03);
+}
+
+.scoreRounds {
+  display: grid;
+  gap: 14px;
+}
+
+.scoreRound {
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 14px;
+  padding: 12px;
+  background: rgba(0,0,0,0.02);
+}
+
+.scoreRoundHeader {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  margin-bottom: 10px;
+}
+
+.scoreMatchList {
+  display: grid;
+  gap: 10px;
+}
+
+.scoreMatch {
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 14px;
+  padding: 12px;
+  background: white;
+}
+
+.scoreMatchTop {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.scoreMatchTitle {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.scoreControls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.scoreSide {
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 12px;
+  padding: 10px;
+  background: rgba(0,0,0,0.02);
+}
+
+.scoreName {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.scoreBtns {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.scoreNumber {
+  min-width: 22px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.mutedPill {
+  opacity: 0.6;
 }
